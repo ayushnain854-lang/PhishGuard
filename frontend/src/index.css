@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-bg: #080c14;
+  --color-cyber-card: #0f172a;
+  --color-cyber-cardhover: #1e293b;
+  --color-cyber-teal: #06b6d4;
+  --color-cyber-blue: #3b82f6;
+  --color-cyber-amber: #f59e0b;
+  --color-cyber-red: #ef4444;
+  --color-cyber-green: #10b981;
+  --color-cyber-accent: #4f46e5;
+  --font-sans: 'Inter', 'system-ui', 'sans-serif';
+  --shadow-cyan-glow: 0 0 15px rgba(6, 182, 212, 0.15);
+  --shadow-blue-glow: 0 0 15px rgba(59, 130, 246, 0.15);
+  --shadow-red-glow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+body {
+  @apply bg-cyber-bg text-slate-100 antialiased selection:bg-cyber-teal/30 selection:text-white font-sans;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphic Panel Layout */
+.glass-card {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(30, 41, 59, 0.65);
+  border-color: rgba(6, 182, 212, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.1);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}

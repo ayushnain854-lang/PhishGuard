@@ -1,0 +1,10 @@
+flask==3.0.3
+flask-cors==4.0.1
+pyjwt==2.8.0
+scikit-learn==1.5.0
+pandas==2.2.2
+numpy==1.26.4
+nltk==3.8.1
+pillow==10.3.0
+requests==2.32.3
+groq==1.7.0

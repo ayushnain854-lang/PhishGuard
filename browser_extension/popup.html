@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(17, 24, 39, 0.9);
+      --border-cyan: #06b6d4;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --color-safe: #10b981;
+      --color-warn: #f59e0b;
+      --color-phish: #ef4444;
+    }
+
+    body {
+      width: 320px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      padding: 16px;
+      overflow-x: hidden;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand span {
+      color: var(--border-cyan);
+    }
+
+    .badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(6, 182, 212, 0.2);
+      border: 1px solid var(--border-cyan);
+      color: var(--border-cyan);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .status-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      margin-bottom: 12px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .status-title {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .status-value {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 6px 0;
+      color: var(--text-main);
+    }
+
+    .status-value.safe { color: var(--color-safe); }
+    .status-value.warning { color: var(--color-warn); }
+    .status-value.phishing { color: var(--color-phish); }
+
+    .risk-bar-container {
+      background: rgba(255, 255, 255, 0.1);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+
+    .risk-bar {
+      height: 100%;
+      width: 0%;
+      border-radius: 3px;
+      transition: width 0.5s ease-in-out, background-color 0.5s ease;
+    }
+
+    .details-list {
+      font-size: 12px;
+      text-align: left;
+      margin-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 8px;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3);
+      transition: transform 0.1s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">PhishGuard <span>AI</span></div>
+    <div class="badge">Shield Active</div>
+  </div>
+
+  <div class="status-card">
+    <div class="status-title">Current Tab Threat Level</div>
+    <div id="status-pred" class="status-value safe">Safe</div>
+    
+    <div class="risk-bar-container">
+      <div id="risk-fill" class="risk-bar" style="background-color: var(--color-safe); width: 0%;"></div>
+    </div>
+    
+    <div style="display: flex; justify-content: space-between; font-size: 11px;">
+      <span id="risk-score-text">Risk: 0%</span>
+      <span id="domain-name-text">Checking domain...</span>
+    </div>
+
+    <div id="details-box" class="details-list" style="display: none;">
+      <!-- Reasons list dynamically updated -->
+    </div>
+  </div>
+
+  <button id="scan-btn" class="btn">Scan Opened Page</button>
+  <button id="dash-btn" class="btn btn-secondary">Open Security Dashboard</button>
+
+  <div class="footer">
+    PhishGuard AI Real-Time Agent v1.0.0
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
