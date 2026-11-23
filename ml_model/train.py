@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score
 
-# Import features extraction functions
+# Import features extraction functions.
 from features import extract_text_features, extract_url_features
 
 # Download necessary NLTK resources
