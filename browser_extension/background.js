@@ -1,6 +1,6 @@
 const API_BASE = "http://localhost:5000";
 
-// 1. Create context menu on installation
+// 1. Create context menu on installation.
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "scan-selection-phishguard",
