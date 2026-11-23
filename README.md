@@ -2,7 +2,7 @@
 
 PhishGuard AI is a production-grade, commercial-quality cybersecurity platform designed to intercept, analyze, and explain phishing threats across emails, SMS texts, WhatsApp messages, URLs, and screenshots in real-time. 
 
-Inspired by dashboards like Microsoft Defender and CrowdStrike Falcon, the system combines Natural Language Processing (NLP), Machine Learning, optical character recognition (OCR), and Explainable AI (XAI) with a Manifest V3 browser extension.
+Inspired by dashboards like Microsoft Defender and CrowdStrike Falcon, the system combines Natural Language Processing (NLP), Machine Learning, optical character recognition (OCR), and Explainable AI (XAI) with a Manifest V3 browser extensions.
 
 ---
 
