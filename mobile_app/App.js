@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 
-// Context for Auth
+// Context for Auth.
 export const AuthContext = createContext(null);
 
 // Screens (we will create these next)
